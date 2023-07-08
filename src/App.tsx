@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { ThemeProvider } from 'styled-components'
+import { Transactions } from './pages/Transactions/index'
 import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/themes/default'
 
@@ -8,7 +9,7 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
 
-      <h1>Hello world</h1>
+      <Transactions />
     </ThemeProvider>
   )
 }
