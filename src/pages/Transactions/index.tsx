@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Header } from '../../components/Header/index'
+import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary/index'
 import {
   PriceHighlight,
@@ -14,6 +15,7 @@ export function Transactions() {
       <Summary />
 
       <TransactionsContainer>
+        <SearchForm />
         <TransactionsTable>
           <tbody>
             <tr>
