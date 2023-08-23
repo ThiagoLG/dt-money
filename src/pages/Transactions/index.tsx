@@ -1,7 +1,9 @@
 import * as React from 'react'
+import { useContext } from 'react'
 import { Header } from '../../components/Header/index'
 import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary/index'
+import { TransactionContext } from '../../contexts/TransactionsContext'
 import {
   PriceHighlight,
   TransactionsContainer,
@@ -9,6 +11,11 @@ import {
 } from './styles'
 
 export function Transactions() {
+  const { transactions } = useContext(TransactionContext)
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'BRL',
+  })
   return (
     <div>
       <Header />
@@ -18,30 +25,26 @@ export function Transactions() {
         <SearchForm />
         <TransactionsTable>
           <tbody>
-            <tr>
-              <td width="50%">Site development</td>
-              <td>
-                <PriceHighlight variant="income">R$ 12.000,00</PriceHighlight>
-              </td>
-              <td>Sell</td>
-              <td>07/08/2022</td>
-            </tr>
-
-            <tr>
-              <td width="50%">Dinner</td>
-              <td>
-                <PriceHighlight variant="outcome">- R$ 90,00</PriceHighlight>
-              </td>
-              <td>Sell</td>
-              <td>07/08/2022</td>
-            </tr>
-
-            <tr>
-              <td width="50%">Site development</td>
-              <td>R$ 12.000,00</td>
-              <td>Sell</td>
-              <td>07/08/2022</td>
-            </tr>
+            {transactions &&
+              transactions.map((transaction) => {
+                return (
+                  <tr key={transaction.id}>
+                    <td width="50%">{transaction.description}</td>
+                    <td>
+                      <PriceHighlight variant={transaction.type}>
+                        {transaction.type === 'outcome' ? '- ' : ''}
+                        {formatter.format(transaction.price)}
+                      </PriceHighlight>
+                    </td>
+                    <td>{transaction.category}</td>
+                    <td>
+                      {new Date(transaction.createdAt).toLocaleDateString(
+                        'pt-BR',
+                      )}
+                    </td>
+                  </tr>
+                )
+              })}
           </tbody>
         </TransactionsTable>
       </TransactionsContainer>
