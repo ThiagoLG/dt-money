@@ -12,7 +12,7 @@ import {
 
 export function Transactions() {
   const { transactions } = useContext(TransactionContext)
-  const formatter = new Intl.NumberFormat('en-US', {
+  const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
   })
