@@ -24,7 +24,7 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
-  const { transactions, createTransaction } = useContext(TransactionContext)
+  const { createTransaction } = useContext(TransactionContext)
 
   const {
     register,

@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview",
     "eslint": "eslint src --ext .ts,.tsx",
+    "eslint:fix": "eslint src --ext .ts,.tsx --fix",
     "dev:server": "json-server server.json -p 3333 -w -d 1000"
   },
   "dependencies": {
