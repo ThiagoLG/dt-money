@@ -15,7 +15,30 @@
       "category": "Food",
       "price": 50,
       "createdAt": "2023-07-10T01:21:37.821Z"
+    },
+    {
+      "description": "PLR",
+      "price": 8000,
+      "category": "Salary",
+      "type": "income",
+      "createdAt": "2023-08-24T01:54:41.292Z",
+      "id": 3
+    },
+    {
+      "description": "Internet Bill",
+      "price": 100,
+      "category": "Bill",
+      "type": "outcome",
+      "createdAt": "2023-08-24T01:55:06.133Z",
+      "id": 4
+    },
+    {
+      "description": "Teste",
+      "price": 1200,
+      "category": "Costs",
+      "type": "outcome",
+      "createdAt": "2023-08-24T02:27:22.809Z",
+      "id": 5
     }
-
   ]
 }
